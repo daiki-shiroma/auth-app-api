@@ -1,9 +1,16 @@
 class TodosController < ApplicationController
+  # before_action :authenticate_user!, except: [:index, :show]
 
-    def index
+      def index
         todos = Todo.all
         render :json => todos
       end
+
+      # def show
+      #   user = User.find_by(id: params[:id])
+      #   todos = user.Todo
+      #   render :json => todos
+      # end
     
       def create
         Todo.create(todo_params)
@@ -37,6 +44,6 @@ class TodosController < ApplicationController
       private
     
     def todo_params
-      params.require(:todo).permit(:name, :complete)
+      params.require(:todo).permit(:name, :complete, :user_id)
     end
 end
