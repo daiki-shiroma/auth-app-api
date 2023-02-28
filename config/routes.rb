@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   get 'todos', to: 'todos#index'
+
+  get 'todos/show', to: 'todos#show'
+
   post "todos" => "todos#create"
   put "todos/:id" => "todos#update"
   delete '/todos/destroy_doneTask', to: 'todos#destroy_doneTask'
@@ -16,7 +19,8 @@ Rails.application.routes.draw do
   get '/logged_in', to: 'sessions#logged_in?'
 
   get '/user_index', to: 'users#user_index'
+
   get '/user_get/:id', to: 'users#user_get'
-  get '/user_todos', to: 'users#user_todos'
+  get '/user_todos/:id', to: 'users#user_todos'
 
 end

@@ -6,11 +6,14 @@ class TodosController < ApplicationController
         render :json => todos
       end
 
-      # def show
-      #   user = User.find_by(id: params[:id])
-      #   todos = user.Todo
-      #   render :json => todos
-      # end
+      def show
+        # userId = User.find(params[:id])
+        # todos  =Todo.where(userId)
+        # todos  =current_user.todos
+        todos  =current_user.todos
+        # todos=Todo.where(id:current_user.id)
+        render :json => todos
+      end
     
       def create
         Todo.create(todo_params)
