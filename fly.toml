@@ -1,6 +1,6 @@
-# fly.toml file generated for auth-app-api on 2023-02-26T13:54:39+09:00
+# fly.toml file generated for auth-app-api-shiromadaiki on 2023-03-01T16:47:41+09:00
 
-app = "auth-app-api"
+app = "auth-app-api-shiromadaiki"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []

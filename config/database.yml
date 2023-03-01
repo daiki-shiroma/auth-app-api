@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
+  url:  ENV['DATABASE_URL'] 
   database: auth_app_api_production
   username: auth_app_api
   password: <%= ENV["AUTH_APP_API_DATABASE_PASSWORD"] %>

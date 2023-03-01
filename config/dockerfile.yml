@@ -14,7 +14,7 @@ options:
   nginx: false
   parallel: false
   platform:
-  postgresql: false
+  postgresql: true
   precompile:
   prepare: true
   redis: false
