@@ -2,17 +2,13 @@ class TodosController < ApplicationController
   # before_action :authenticate_user!, except: [:index, :show]
 
       def index
-        todos = Todo.all
+        todos = Todo.all.order(created_at: :asc)
         p todos
         render :json => todos
       end
 
       def show
-        # p current_user
-        # todos  =current_user.todos
-        # p todos
-        # render :json => todos
-        todos = Todo.where(user_id: params[:id])
+        todos = Todo.where(user_id: params[:id]).order(created_at: :asc)
         render :json => todos
       end
     
