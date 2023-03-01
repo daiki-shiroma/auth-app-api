@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'todos', to: 'todos#index'
+  get 'todos/index', to: 'todos#index'
 
-  get 'todos/show', to: 'todos#show'
+  get 'todos/show/:id', to: 'todos#show'
 
   post "todos" => "todos#create"
   put "todos/:id" => "todos#update"

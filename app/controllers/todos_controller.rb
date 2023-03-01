@@ -3,15 +3,16 @@ class TodosController < ApplicationController
 
       def index
         todos = Todo.all
+        p todos
         render :json => todos
       end
 
       def show
-        # userId = User.find(params[:id])
-        # todos  =Todo.where(userId)
+        # p current_user
         # todos  =current_user.todos
-        todos  =current_user.todos
-        # todos=Todo.where(id:current_user.id)
+        # p todos
+        # render :json => todos
+        todos = Todo.where(user_id: params[:id])
         render :json => todos
       end
     
