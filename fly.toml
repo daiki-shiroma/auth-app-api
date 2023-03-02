@@ -1,6 +1,6 @@
-# fly.toml file generated for auth-app-api-shiromadaiki on 2023-03-01T16:47:41+09:00
+# fly.toml file generated for rails-api-auth on 2023-03-02T11:08:29+09:00
 
-app = "auth-app-api-shiromadaiki"
+app = "rails-api-auth"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
@@ -12,7 +12,7 @@ processes = []
 
 [[services]]
   http_checks = []
-  internal_port = 3000
+  internal_port = 3001
   processes = ["app"]
   protocol = "tcp"
   script_checks = []

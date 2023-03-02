@@ -75,3 +75,5 @@ gem 'bcrypt'
 
 gem 'rack-cors'
 gem "dockerfile-rails", ">= 1.2", :group => :development
+
+gem "redis", "~> 5.0"
