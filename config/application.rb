@@ -18,5 +18,8 @@ module AuthAppApi
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.middleware.use ActionDispatch::Cookies # 追加
+    config.middleware.use ActionDispatch::Session::CookieStore # 追加
+    config.middleware.use ActionDispatch::ContentSecurityPolicy::Middleware # 追加
   end
 end
