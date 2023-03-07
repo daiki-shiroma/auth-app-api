@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get '/user_todos/:id' => 'users#user_todos'
   get '/user/:id'=> 'users#show'
   put "user_email/:id" => "users#update_email"
+  put "user_password/:id" => "users#user_password"
   delete "user/:id" => 'users#destroy'
 
   resources :users

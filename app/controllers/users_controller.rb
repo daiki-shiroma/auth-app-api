@@ -30,6 +30,13 @@ class UsersController < ApplicationController
         end
     end
 
+    def user_password
+        user = User.find(params[:id])
+        p user
+        user.update(user_params)
+        render :json => user
+    end
+
     def destroy
         user = User.find(params[:id])
         user.destroy
@@ -39,7 +46,7 @@ class UsersController < ApplicationController
     private
     
     def user_params
-      params.require(:user).permit(:email, :password_digest)
+      params.require(:user).permit(:email, :password)
     end
 
 end
