@@ -23,9 +23,9 @@ class UsersController < ApplicationController
         # if User.find_by(email: user_params.email) !=null
         # p user_params
         # if User.find_by(email: user_new_email) ==nil
-         duplicated_email=User.find_by(email: user_params[:email])
+        duplicated_email=User.find_by(email: user_params[:email])
         p duplicated_email
-        if !duplicated_email
+        if duplicated_email!=nil
             user = User.find(params[:id])
             user.update(user_params)
             render :json => user
