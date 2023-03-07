@@ -20,19 +20,13 @@ class UsersController < ApplicationController
     end
 
     def update_email
-        # if User.find_by(email: user_params.email) !=null
-        # p user_params
-        # if User.find_by(email: user_new_email) ==nil
         duplicated_email=User.find_by(email: user_params[:email])
-        p duplicated_email
         if duplicated_email==nil
-            p "edit"
             user = User.find(params[:id])
             user.update(user_params)
             render :json => user
         else
-            p "duplicate"
-            render json: { status: 401, errors: ['認証に失敗しました。', '既に登録されています'] }
+            render json: { status: 409, errors: ['既に登録されています'] }, status: 409
         end
     end
 
