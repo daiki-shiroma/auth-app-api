@@ -20,9 +20,16 @@ class UsersController < ApplicationController
     end
 
     def update
-        user = User.find(params[:id])
-        user.update(user_params)
-        head :ok
+        # if User.find_by(email: user_params.email) !=null
+        # p user_params
+        # if User.find_by(email: user_new_email) ==nil
+        if User.find_by(user_params) ==nil
+            user = User.find(params[:id])
+            user.update(user_params)
+            render :json => user
+        else
+            render json: { status: 401, errors: ['認証に失敗しました。', '既に登録されています'] }
+        end
     end
 
     def destroy
@@ -36,6 +43,10 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:email, :password_digest)
     end
+
+    # def user_new_email
+    #     params.require(:user).permit(:email)
+    # end
 
     
 
