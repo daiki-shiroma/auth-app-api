@@ -30,9 +30,8 @@ class UsersController < ApplicationController
         end
     end
 
-    def user_password
+    def update_password
         user = User.find(params[:id])
-        p user
         user.update(user_params)
         render :json => user
     end

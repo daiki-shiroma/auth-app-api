@@ -3,7 +3,6 @@ class TodosController < ApplicationController
 
       def index
         todos = Todo.all.order(created_at: :asc)
-        p todos
         render :json => todos
       end
 
