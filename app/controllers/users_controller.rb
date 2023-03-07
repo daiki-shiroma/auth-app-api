@@ -25,7 +25,7 @@ class UsersController < ApplicationController
         # if User.find_by(email: user_new_email) ==nil
         duplicated_email=User.find_by(email: user_params[:email])
         p duplicated_email
-        if duplicated_email!=nil
+        if duplicated_email==nil
             user = User.find(params[:id])
             user.update(user_params)
             render :json => user
@@ -45,11 +45,5 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:email, :password_digest)
     end
-
-    # def user_new_email
-    #     params.require(:user).permit(:email)
-    # end
-
-    
 
 end
