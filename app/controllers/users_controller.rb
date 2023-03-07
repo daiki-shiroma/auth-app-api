@@ -26,10 +26,12 @@ class UsersController < ApplicationController
         duplicated_email=User.find_by(email: user_params[:email])
         p duplicated_email
         if duplicated_email==nil
+            p "edit"
             user = User.find(params[:id])
             user.update(user_params)
             render :json => user
         else
+            p "duplicate"
             render json: { status: 401, errors: ['認証に失敗しました。', '既に登録されています'] }
         end
     end
