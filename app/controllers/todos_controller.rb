@@ -1,5 +1,4 @@
 class TodosController < ApplicationController
-  # before_action :authenticate_user!, except: [:index, :show]
 
       def index
         todos = Todo.all.order(created_at: :asc)
@@ -22,12 +21,12 @@ class TodosController < ApplicationController
         head :ok
       end
     
-      def destroy_all
+      def destroy_All_Task
         Todo.destroy_all
         head :no_content
       end
     
-      def destroy_doneTask
+      def destroy_Done_Task
         todo=Todo.where(complete: true)
         todo.destroy_all
         head :ok
