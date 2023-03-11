@@ -20,6 +20,7 @@ class TodosController < ApplicationController
         todo.update(todo_params)
         head :ok
       end
+
       def destroy
         todo = Todo.find(params[:id])
         todo.destroy
@@ -36,8 +37,6 @@ class TodosController < ApplicationController
         todos.destroy_all
         head :ok
       end
-    
-    
     
     private
     

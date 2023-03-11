@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   get 'todos/show/:id' => 'todos#show'
   post "todos" => "todos#create"
   put "todos/:id" => "todos#update"
-  delete '/todos/destroy_doneTask' => 'todos#destroy_done_todo'
-  delete '/todos/destroy_all' => 'todos#destroy_all_todo'
+  delete '/todos/destroy_done_todo' => 'todos#destroy_done_todo'
+  delete '/todos/destroy_all_todo' => 'todos#destroy_all_todo'
   delete "todos/:id" => "todos#destroy"
     
   resources :todos, only: %i[index create update destroy]
@@ -20,8 +20,8 @@ Rails.application.routes.draw do
 
   resources :sessions
 
-  get 'user/index', to: 'users#index'
-  get '/user/:id'=> 'users#show'
+  get 'user/index' => 'users#index'
+  get '/user/:id' => 'users#show'
   put "user_email/:id" => "users#update_email"
   put "user_password/:id" => "users#update_password"
   delete "user/:id" => 'users#destroy'
