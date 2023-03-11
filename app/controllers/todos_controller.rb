@@ -15,29 +15,29 @@ class TodosController < ApplicationController
         head :created
       end
     
+      def update
+        todo =Todo.find(params[:id])
+        todo.update(todo_params)
+        head :ok
+      end
       def destroy
         todo = Todo.find(params[:id])
         todo.destroy
         head :ok
       end
     
-      def destroy_all_task
+      def destroy_all_todo
         Todo.destroy_all
         head :no_content
       end
     
-      def destroy_done_task
-        todo=Todo.where(complete: true)
-        todo.destroy_all
+      def destroy_done_todo
+        todos=Todo.where(complete: true)
+        todos.destroy_all
         head :ok
       end
     
     
-      def update
-        todo =Todo.find(params[:id])
-        todo.update(todo_params)
-        head :ok
-      end
     
     private
     

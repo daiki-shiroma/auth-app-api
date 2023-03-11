@@ -10,20 +10,14 @@ class UsersController < ApplicationController
         render :json => users
     end
 
-    def user_todos
-        userId = User.find_by(id: current_user.id)
-        todos=Todo.where(id:userId)
-        render :json => todos
-    end
-
     def update_email
-        user_duplicated_email=User.find_by(email: user_params[:email])
-        if user_duplicated_email==nil
+        duplicated_user=User.find_by(email: user_params[:email])
+        if duplicated_user == nil
             user = User.find(params[:id])
             user.update(user_params)
             render :json => user
         else
-            render json: { status: 409, errors: ['既に登録されています'] }, status: 409
+            render json: { status: 409, errorcs: ['既に登録されています'] }, status: 409
         end
     end
 
