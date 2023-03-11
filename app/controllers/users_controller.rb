@@ -17,7 +17,7 @@ class UsersController < ApplicationController
             user.update(user_params)
             render :json => user
         else
-            render json: { status: 409, errorcs: ['既に登録されています'] }, status: 409
+            render json: { status: 409, error: ['既に登録されています'] }, status: 409
         end
     end
 
