@@ -21,12 +21,12 @@ class TodosController < ApplicationController
         head :ok
       end
     
-      def destroy_All_Task
+      def destroy_all_task
         Todo.destroy_all
         head :no_content
       end
     
-      def destroy_Done_Task
+      def destroy_done_task
         todo=Todo.where(complete: true)
         todo.destroy_all
         head :ok

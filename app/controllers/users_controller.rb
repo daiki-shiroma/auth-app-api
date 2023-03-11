@@ -10,15 +10,15 @@ class UsersController < ApplicationController
         render :json => users
     end
 
-    def user_Todos
+    def user_todos
         userId = User.find_by(id: current_user.id)
         todos=Todo.where(id:userId)
         render :json => todos
     end
 
-    def update_Email
-        duplicated_Email=User.find_by(email: user_params[:email])
-        if duplicated_Email==nil
+    def update_email
+        user_duplicated_email=User.find_by(email: user_params[:email])
+        if user_duplicated_email==nil
             user = User.find(params[:id])
             user.update(user_params)
             render :json => user
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
         end
     end
 
-    def update_Password
+    def update_password
         user = User.find(params[:id])
         user.update(user_params)
         render :json => user
