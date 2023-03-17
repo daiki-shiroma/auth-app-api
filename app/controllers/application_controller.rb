@@ -3,14 +3,9 @@ class ApplicationController < ActionController::Base
 
   helper_method :login!, :current_user
 
-  rescue_from ActiveRecord::RecordNotFound, with: :not_found
   rescue_from ActionController::ParameterMissing, with: :bad_request
   rescue_from StandardError, with: :internal_server_error
-
-  def not_found
-    render json: { error: "ユーザーが見つかりませんでした" }, status: :not_found
-  end
-
+  
   def bad_request
     render json: { error: "不正なリクエストです" }, status: :bad_request
   end

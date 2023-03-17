@@ -1,5 +1,11 @@
 class UsersController < ApplicationController
 
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
+
+  def not_found
+    render json: { error: "ユーザーが見つかりませんでした" }, status: :not_found
+  end
+
   def index
     users = User.all
     render :json => users

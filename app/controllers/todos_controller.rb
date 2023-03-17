@@ -1,5 +1,11 @@
 class TodosController < ApplicationController
 
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
+  
+  def not_found
+    render json: { error: "クリックしたTodoが見つかりませんでした" }, status: :not_found
+  end
+
   def index
      todos = Todo.all.order(created_at: :asc)
      render :json => todos
