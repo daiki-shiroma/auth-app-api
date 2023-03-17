@@ -16,15 +16,23 @@ class TodosController < ApplicationController
   end
     
   def update
+    begin 
      todo =Todo.find(params[:id])
      todo.update(todo_params)
      head :ok
+    rescue ActiveRecord::RecordNotFound
+     not_found
+    end
   end
 
   def destroy
+    begin
      todo = Todo.find(params[:id])
      todo.destroy
      head :ok
+    rescue ActiveRecord::RecordNotFound
+      not_found
+    end
   end
     
   def destroy_all
